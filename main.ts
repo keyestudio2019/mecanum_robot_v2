@@ -161,34 +161,22 @@ namespace mecanumRobotV2 {
     /**
      * set cat state
      */
-    //% block="car $sta"
+    //% block="car Stop"
     //% group="Motor" weight=98
-    export function state(sta: MotorState) {
+    export function state() {
         //if (!PCA9685_Initialized) {
         //init_PCA9685();
         //}
 
-        if (sta == 0) {           //stop
-            i2cWrite(0x30, 0x01, 0); //M1A
-            i2cWrite(0x30, 0x02, 0); //M1B
-            i2cWrite(0x30, 0x03, 0); //M1A
-            i2cWrite(0x30, 0x04, 0); //M1B
-            i2cWrite(0x30, 0x05, 0); //M1A
-            i2cWrite(0x30, 0x06, 0); //M1B
-            i2cWrite(0x30, 0x07, 0); //M1A
-            i2cWrite(0x30, 0x08, 0); //M1B
-        }
-
-        if (sta == 1) {           //brake
-            i2cWrite(0x30, 0x01, 0); //M1A
-            i2cWrite(0x30, 0x02, 0); //M1B
-            i2cWrite(0x30, 0x03, 0); //M1A
-            i2cWrite(0x30, 0x04, 0); //M1B
-            i2cWrite(0x30, 0x05, 0); //M1A
-            i2cWrite(0x30, 0x06, 0); //M1B
-            i2cWrite(0x30, 0x07, 0); //M1A
-            i2cWrite(0x30, 0x08, 0); //M1B
-        }
+        //stop
+        i2cWrite(0x30, 0x01, 0); //M1A
+        i2cWrite(0x30, 0x02, 0); //M1B
+        i2cWrite(0x30, 0x03, 0); //M1A
+        i2cWrite(0x30, 0x04, 0); //M1B
+        i2cWrite(0x30, 0x05, 0); //M1A
+        i2cWrite(0x30, 0x06, 0); //M1B
+        i2cWrite(0x30, 0x07, 0); //M1A
+        i2cWrite(0x30, 0x08, 0); //M1B
     }
 
 
