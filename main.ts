@@ -118,13 +118,13 @@ namespace mecanumRobotV2 {
         //电机1
         //正转
         if (M == 2 && D == 1) {
-            i2cWrite(0x30, 0x01, 0); //M1A
-            i2cWrite(0x30, 0x02, speed_value); //M1B
+            i2cWrite(0x30, 0x01, speed_value); //M1A
+            i2cWrite(0x30, 0x02, 0); //M1B
         }
         //反转
         if (M == 2 && D == 0) {
-            i2cWrite(0x30, 0x01, speed_value); //M1A
-            i2cWrite(0x30, 0x02, 0); //M1B
+            i2cWrite(0x30, 0x01, 0); //M1A
+            i2cWrite(0x30, 0x02, speed_value); //M1B
         }
 
         //电机2
@@ -147,12 +147,12 @@ namespace mecanumRobotV2 {
         }
         //电机4
         if (M == 1 && D == 0) {
-            i2cWrite(0x30, 0x07, 0); //M4A
-            i2cWrite(0x30, 0x08, speed_value); //M4B
-        }
-        if (M == 1 && D == 1) {
             i2cWrite(0x30, 0x07, speed_value); //M4A
             i2cWrite(0x30, 0x08, 0); //M4B
+        }
+        if (M == 1 && D == 1) {
+            i2cWrite(0x30, 0x07, 0); //M4A
+            i2cWrite(0x30, 0x08, speed_value); //M4B
         }
 
     }
