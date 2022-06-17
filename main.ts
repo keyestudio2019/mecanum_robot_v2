@@ -138,21 +138,21 @@ namespace mecanumRobotV2 {
         }
         //电机3
         if (M == 3 && D == 1) {
-            i2cWrite(0x30, 0x05, 0); //M3A
-            i2cWrite(0x30, 0x06, speed_value); //M3B
-        }
-        if (M == 3 && D == 0) {
             i2cWrite(0x30, 0x05, speed_value); //M3A
             i2cWrite(0x30, 0x06, 0); //M3B
         }
+        if (M == 3 && D == 0) {
+            i2cWrite(0x30, 0x05, 0); //M3A
+            i2cWrite(0x30, 0x06, speed_value); //M3B
+        }
         //电机4
         if (M == 1 && D == 0) {
-            i2cWrite(0x30, 0x07, speed_value); //M4A
-            i2cWrite(0x30, 0x08, 0); //M4B
-        }
-        if (M == 1 && D == 1) {
             i2cWrite(0x30, 0x07, 0); //M4A
             i2cWrite(0x30, 0x08, speed_value); //M4B
+        }
+        if (M == 1 && D == 1) {
+            i2cWrite(0x30, 0x07, speed_value); //M4A
+            i2cWrite(0x30, 0x08, 0); //M4B
         }
 
     }
