@@ -59,8 +59,9 @@ enum MD {
 
 enum LT {
     Left,
-    Right,
-    Center
+    Center,
+    Right
+    
 }
 
 enum LedCount {
