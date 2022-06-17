@@ -1,7 +1,7 @@
 {
-    "name": "pxt-mecanum-robot-V2",
+    "name": "pxt-mecanum-robot",
     "version": "0.0.0",
-    "description": "keyestudio mecanum robot V2 for microbit",
+    "description": "keyestudio mecanum robot for microbit",
     "dependencies": {
         "core": "*",
         "neopixel": "github:mworkfun/pxt-neopixel-bluetooth",
