@@ -59,7 +59,8 @@ enum MD {
 
 enum LT {
     Left,
-    Right
+    Right,
+    Center
 }
 
 enum LedCount {
@@ -207,10 +208,13 @@ namespace mecanumRobotV2 {
         let lt = LT_val;
         switch (lt) {
             case LT.Left:
-                val = pins.digitalReadPin(DigitalPin.P1);
+                val = pins.digitalReadPin(DigitalPin.P3);
                 break;
             case LT.Right:
-                val = pins.digitalReadPin(DigitalPin.P2);
+                val = pins.digitalReadPin(DigitalPin.P10);
+                break;
+            case LT.Center:
+                val = pins.digitalReadPin(DigitalPin.P4);
                 break;
         }
         // val = (pins.digitalReadPin(DigitalPin.P14)<<2) + 
