@@ -1,7 +1,7 @@
 {
-    "name": "pxt-mecanum-robot",
+    "name": "pxt-mecanum-robot-V2",
     "version": "0.0.0",
-    "description": "keyestudio mecanum robot for microbit",
+    "description": "keyestudio mecanum robot V2 for microbit",
     "dependencies": {
         "core": "*",
         "neopixel": "github:mworkfun/pxt-neopixel-bluetooth",
@@ -23,5 +23,16 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "tsprj"
+    "preferredEditor": "tsprj",
+    "yotta": {
+        "config": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "open": 1,
+                    "whitelist": 0,
+                    "security_level": null
+                }
+            }
+        }
+    }
 }
