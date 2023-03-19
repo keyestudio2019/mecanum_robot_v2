@@ -227,7 +227,7 @@ namespace mecanumRobotV2 {
     /////////////////////////////////////////////////////
     //% block="$LT_val LineTracking"
     //% group="Sensor" weight=69
-    export function LineTracking(LT_val: LT) {
+    export function LineTracking(LT_val: LT): boolean {
         let val = 0;
         let lt = LT_val;
         switch (lt) {
@@ -244,7 +244,7 @@ namespace mecanumRobotV2 {
         // val = (pins.digitalReadPin(DigitalPin.P14)<<2) + 
         //       (pins.digitalReadPin(DigitalPin.P15)<<1) +
         //       (pins.digitalReadPin(DigitalPin.P16));
-        return val;
+        return val == 1;
     }
     /**
      * Ultrasonic sensor
