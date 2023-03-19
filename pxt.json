@@ -10,7 +10,8 @@
     },
     "files": [
         "README.md",
-        "main.ts"
+        "main.ts",
+        "_locales/fr/pxt-mecanum-robot-V2-strings.json"
     ],
     "testFiles": [
         "test.ts"
