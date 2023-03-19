@@ -78,7 +78,9 @@ enum LT {
     //% block="Left"
     Left,
     //% block="Right"
-    Right
+    Right,
+    //% block="Center"
+    Center
 }
 
 enum LedCount {
