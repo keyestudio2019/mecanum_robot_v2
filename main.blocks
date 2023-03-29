@@ -1,4 +1,7 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
   <block type="pxt-on-start"></block>
-  <block type="device_forever"></block>
+  <block type="device_forever">
+    <block type="robot.initRobot"></block>
+    <block type="neopixel.create"></block>
+  </block>
 </xml>
