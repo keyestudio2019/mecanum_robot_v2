@@ -103,7 +103,7 @@ enum Servo_num {
 }
 
 //% color="#ff6800" icon="\uf1b9" weight=15
-//% groups="['Motor', 'Servo', 'led', 'Neo-pixel', 'Sensor', 'Tone']"
+//% groups="['General', 'Motor', 'Servo', 'led', 'Neo-pixel', 'Sensor', 'Tone']"
 namespace mecanumRobotV2 {
     /**
      * use for control PCA9685
@@ -128,6 +128,20 @@ namespace mecanumRobotV2 {
         pins.i2cWriteBuffer(STC15_ADDRESS, buf)
     }
 
+    /**
+    * Initialize robot
+    */
+    //% block="Initialize robot"
+    //% group="General" weight=97
+    //% blockSetVariable=leds
+    export function initRobot(): neopixel.Strip {
+        led.enable(false)
+        irRemote.connectInfrared(DigitalPin.P0)
+        //leds = neopixel.create(DigitalPin.P7, 4, NeoPixelMode.RGB)
+        let neopixelPin = neopixel.create(DigitalPin.P7, 4, NeoPixelMode.RGB)
+        neopixelPin.clear()
+        return neopixelPin
+    }
 
     /**
      * set speed of motor
