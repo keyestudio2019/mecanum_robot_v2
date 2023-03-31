@@ -131,8 +131,8 @@ namespace mecanumRobotV2 {
     /**
     * Initialize robot
     */
-    //% block="Initialize robot"
     //% group="General" weight=97
+    //% block="Initialize robot"
     export function initRobot() {
         irRemote.connectInfrared(DigitalPin.P0)
     }
