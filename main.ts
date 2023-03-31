@@ -133,11 +133,18 @@ namespace mecanumRobotV2 {
     */
     //% block="Initialize robot"
     //% group="General" weight=97
-    //% blockSetVariable=leds
-    export function initRobot(): neopixel.Strip {
-        led.enable(false)
+    export function initRobot() {
         irRemote.connectInfrared(DigitalPin.P0)
-        //leds = neopixel.create(DigitalPin.P7, 4, NeoPixelMode.RGB)
+    }
+
+    /**
+    * Create led strip
+    */
+    //% block="Create led strip"
+    //% group="General" weight=96
+    //% blockSetVariable=leds
+    export function createLedStrip(): neopixel.Strip {
+        led.enable(false)
         let neopixelPin = neopixel.create(DigitalPin.P7, 4, NeoPixelMode.RGB)
         neopixelPin.clear()
         return neopixelPin
@@ -148,7 +155,7 @@ namespace mecanumRobotV2 {
      */
     //% block="Motor $M run $D speed: $speed \\%"
     //% speed.min=0 speed.max=100
-    //% group="Motor" weight=97
+    //% group="Motor" weight=95
     export function Motor(M: LR, D: MD, speed: number) {
         // if (!PCA9685_Initialized) {
         //     init_PCA9685();
@@ -201,7 +208,7 @@ namespace mecanumRobotV2 {
      * set car state
      */
     //% block="car Stop"
-    //% group="Motor" weight=98
+    //% group="Motor" weight=94
     export function state() {
         //if (!PCA9685_Initialized) {
         //init_PCA9685();
