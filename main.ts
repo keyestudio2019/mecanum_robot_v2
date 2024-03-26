@@ -142,9 +142,9 @@ namespace mecanumRobotV2 {
     */
     //% block="Create led strip"
     //% group="General" weight=96
-    //% blockSetVariable=leds
+    //% blockSetVariable=strip
     export function createLedStrip(): neopixel.Strip {
-        led.enable(false)
+        //led.enable(false)
         let neopixelPin = neopixel.create(DigitalPin.P7, 4, NeoPixelMode.RGB)
         neopixelPin.clear()
         return neopixelPin
