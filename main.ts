@@ -2,10 +2,15 @@
  * use for RGB-LED
  */
 enum COLOR {
+    //% block=red
     red,
+    //% block=green
     green,
+    //% block=blue
     blue,
+    //% block=white
     white,
+    //% block=black
     black
 }
 /**
@@ -37,40 +42,58 @@ enum vColors {
  * use for control motor
  */
 enum DIR {
+    //% block="Run_forward"
     Run_forward = 0,
+    //% block="Run_back"
     Run_back = 1,
+    //% block="Turn_Left"
     Turn_Left = 2,
+    //% block="Turn_Right"
     Turn_Right = 3
 }
 enum LR {
+    //% block="Upper_left"
     Upper_left = 0,
+    //% block="Lower_left"
     Lower_left = 1,
+    //% block="Upper_right"
     Upper_right = 2,
+    //% block="Lower_right"
     Lower_right = 3,
 }
 enum MotorState {
+    //% block="stop"
     stop = 0,
+    //% block="brake"
     brake = 1
 }
 enum MD {
+    //% block="Forward"
     Forward = 0,
+    //% block="Back"
     Back = 1
 }
 
 enum LT {
+    //% block="Left"
     Left,
-    Center,
-    Right
-    
+    //% block="Right"
+    Right,
+    //% block="Center"
+    Center
 }
 
 enum LedCount {
-    Left = 0x09,
-    Right = 0x0a
+    //% block="Left"
+    Left = 12,
+    //% block="Right"
+    Right = 13
 }
 
 enum LedState {
+    //% block="ON"
     ON = 4095,
+    //% block="OFF"
     OFF = 0
 }
 
@@ -80,7 +103,7 @@ enum Servo_num {
 }
 
 //% color="#ff6800" icon="\uf1b9" weight=15
-//% groups="['Motor', 'Servo', 'led', 'Neo-pixel', 'Sensor', 'Tone']"
+//% groups="['General', 'Motor', 'Servo', 'led', 'Neo-pixel', 'Sensor', 'Tone']"
 namespace mecanumRobotV2 {
     /**
      * use for control PCA9685
@@ -105,13 +128,34 @@ namespace mecanumRobotV2 {
         pins.i2cWriteBuffer(STC15_ADDRESS, buf)
     }
 
+    /**
+    * Initialize robot
+    */
+    //% group="General" weight=96
+    //% block="Initialize robot"
+    export function initializeRobot() {
+        irRemote.connectInfrared(DigitalPin.P0)
+    }
+
+    /**
+    * Create led strip
+    */
+    //% block="Create led strip"
+    //% group="General" weight=96
+    //% blockSetVariable=strip
+    export function createLedStrip(): neopixel.Strip {
+        //led.enable(false)
+        let neopixelPin = neopixel.create(DigitalPin.P7, 4, NeoPixelMode.RGB)
+        neopixelPin.clear()
+        return neopixelPin
+    }
 
     /**
      * set speed of motor
      */
     //% block="Motor $M run $D speed: $speed \\%"
     //% speed.min=0 speed.max=100
-    //% group="Motor" weight=97
+    //% group="Motor" weight=95
     export function Motor(M: LR, D: MD, speed: number) {
         // if (!PCA9685_Initialized) {
         //     init_PCA9685();
@@ -161,10 +205,10 @@ namespace mecanumRobotV2 {
 
 
     /**
-     * set cat state
+     * set car state
      */
     //% block="car Stop"
-    //% group="Motor" weight=98
+    //% group="Motor" weight=94
     export function state() {
         //if (!PCA9685_Initialized) {
         //init_PCA9685();
@@ -204,7 +248,7 @@ namespace mecanumRobotV2 {
     /////////////////////////////////////////////////////
     //% block="$LT_val LineTracking"
     //% group="Sensor" weight=69
-    export function LineTracking(LT_val: LT) {
+    export function LineTracking(LT_val: LT): boolean {
         let val = 0;
         let lt = LT_val;
         switch (lt) {
@@ -221,7 +265,7 @@ namespace mecanumRobotV2 {
         // val = (pins.digitalReadPin(DigitalPin.P14)<<2) + 
         //       (pins.digitalReadPin(DigitalPin.P15)<<1) +
         //       (pins.digitalReadPin(DigitalPin.P16));
-        return val;
+        return val == 1;
     }
     /**
      * Ultrasonic sensor

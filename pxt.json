@@ -4,20 +4,21 @@
     "description": "keyestudio mecanum robot V2 for microbit",
     "dependencies": {
         "core": "*",
-        "neopixel": "github:mworkfun/pxt-neopixel-bluetooth",
-        "pxt-ir-remote": "github:mworkfun/pxt-ir-remote#c10e5f2cfb043511430dbefb1b56a02f9e7ed175",
+        "neopixel": "github:microsoft/pxt-neopixel",
+        "pxt-ir-remote": "github:lgm42/pxt-ir-remote#1ffda65615bf132906f65c7375cf4a93a5052f2d",
         "microphone": "*"
     },
     "files": [
         "README.md",
-        "main.ts"
+        "main.ts",
+        "_locales/fr/pxt-mecanum-robot-V2-strings.json"
     ],
     "testFiles": [
         "test.ts"
     ],
     "public": true,
     "targetVersions": {
-        "target": "5.0.6",
+        "target": "6.0.25",
         "targetId": "microbit"
     },
     "supportedTargets": [
